@@ -1,10 +1,10 @@
-#!/usr/bin/ksh
+#!/bin/bash
 ############################################ 
-#  Popis funkce programu
+#  Command description
 #
-#  Autor: Martin Horak
-#  Verze: 1.0
-#  Datum: 
+#  Author: Martin Horak <horak.martin@gmail.com>
+#  Version: 1.0
+#  Date:
 #
 ############################################
 
@@ -21,17 +21,17 @@ Usage() {
     cat <<EOF
 
 
-Pouziti: 
-    $command [-h] [-qv] {prikaz}
+Usage:
+    $command [-h] [-qv] [-l logfile] {command}
 
-Popis prikazu
+Command description
 
-Parametry:
-    -h  ... tato napoveda
-    -v  ... zvysuje vyrecnost
-    -q  ... snizuje vyrecnost
+Parameters:
+    -h  ... This help
+    -v  ... More verbose
+    -q  ... Less verbose
 
-Chyby:
+Bugs:
 
 EOF
     exit
@@ -52,6 +52,7 @@ while [[ -n "$1" ]]; do
                 h) Usage ;;
                 q) let "verbose -= 1" ;;
                 v) let "verbose += 1" ;;
+                l) logfile=$2; shift ;;
             esac
             r=$(expr substr $r 2 255)
         done
@@ -61,8 +62,11 @@ while [[ -n "$1" ]]; do
     shift
 done
 ## Getparam end ## -------------------------
+: ${logfile:="skeleton.log"}
+
 echo "Verbose: $verbose"
-echo "Dalsi parametry: $parms"
+echo "Logfile: $logfile"
+echo "More parameters: $parms"
 
 exit 0;
 
