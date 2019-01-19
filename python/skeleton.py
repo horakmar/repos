@@ -1,19 +1,18 @@
 #!/usr/bin/python
-# vim:fileencoding=utf-8:tabstop=4:shiftwidth=4
+# vim:fileencoding=utf-8:tabstop=4:shiftwidth=4:expandtab
 
 ############################################ 
-#  Popis funkce programu
+#  Program description
 #
-#  Autor: Martin Horak
-#  Verze: 1.0
-#  Datum: 
+#  Author: Martin Horak
+#  Version: 1.0
+#  Date: 
 #
 ############################################
 import sys
 
 ## Environment ## ==========================
 ################# ==========================
-
 
 ## Functions ## ============================
 ############### ============================
@@ -22,18 +21,18 @@ def Usage():
     '''Usage help'''
 
     usage = """
-Pouziti:
+Usage:
     {script_name} [-h] [-tvq]
 
-Program <popis>
+Program <desc>
 
-Parametry:
-    -h  ... help - tato napoveda
-    -t  ... test - neprovadet prikazy, pouze vypsat
-    -v  ... verbose - vypisovat vice informaci
-    -q  ... quiet - vypisovat mene informaci
+Parameters:
+    -h  ... help - this help
+    -t  ... test - dry run
+    -v  ... more verbose
+    -q  ... more quiet = less verbose
 
-Chyby:
+Bugs:
 
 """
     print usage.format(script_name = sys.argv[0])
@@ -44,10 +43,8 @@ Chyby:
 ## Main ## =================================
 ########## =================================
 def main():
-    '''Hlavni program'''
-
+    '''Main program description'''
 ## Variables ## ============================
-############### ============================
     test = False
     verbose = 1
     log = ''
@@ -76,7 +73,7 @@ def main():
                 argn.append(args[i])
             i += 1
     except IndexError:
-        print("Chyba cteni parametru.")
+        print("Parameter read error.")
         Usage()
         return
 ## Getparam end ## -------------------------
@@ -84,15 +81,14 @@ def main():
     print "Test: {}".format(test)
     print "Verbose: %d" % verbose
     print "Log: %s" % log
-    print "Dalsi parametry:"
+    print "More params:"
     for s in argn:
         print s
 
     return
 ## Main end =================================
-########### =================================
 
-## Spusteni main ============================
+## Main run =================================
 ########### =================================
 if __name__ == '__main__': 
     main()
