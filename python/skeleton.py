@@ -14,11 +14,16 @@ import sys
 ## Environment ## ==========================
 ################# ==========================
 
+## Globals ## ============================
+test = False
+verbose = 1
+log = ''
+
 ## Functions ## ============================
 ############### ============================
 ## Usage ## --------------------------------
 def Usage():
-    '''Usage help'''
+    '''Usage help.'''
 
     usage = """
 Usage:
@@ -29,25 +34,32 @@ Program <desc>
 Parameters:
     -h  ... help - this help
     -t  ... test - dry run
-    -v  ... more verbose
-    -q  ... more quiet = less verbose
+    -v  ... verbose - more info
+    -q  ... quiet - less info
 
 Bugs:
 
 """
     print usage.format(script_name = sys.argv[0])
     return
-
 ## Usage end ## ----------------------------
+
+## RunCMD ## -------------------------------
+def RunCMD(command):
+    '''Run command and optionally print it.'''
+    if verbose >= 2 or test:
+        print('RUN: ', ' '.join(command))
+    if not test:
+        sub.run(command)
+    return
+## RunCMD end ## ---------------------------
 
 ## Main ## =================================
 ########## =================================
 def main():
-    '''Main program description'''
-## Variables ## ============================
-    test = False
-    verbose = 1
-    log = ''
+    '''Main program description.'''
+
+    global test, verbose, log
 
 ## Getparam ## -----------------------------
     argn = []
