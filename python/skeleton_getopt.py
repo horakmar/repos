@@ -36,7 +36,7 @@ Parameters:
 Bugs:
 
 """
-    print usage.format(script_name = sys.argv[0])
+    print(usage.format(script_name = sys.argv[0]))
     return
 
 ## Usage end ## ----------------------------
@@ -69,17 +69,18 @@ def main():
             verbose -= 1
         elif opt == "-l":
             logfile = arg
+## Getparam end ## -------------------------
 
-    print "Test: {}".format(test)
-    print "Verbose: {}".format(verbose)
-    print "Log: {}".format(logfile)
-    print "Dalsi parametry:"
+    print("Test: {}".format(test))
+    print("Verbose: {}".format(verbose))
+    print("Log: {}".format(logfile))
+    print("Dalsi parametry:")
     for s in args:
-        print s
+        print(s)
 
 ## Main end =================================
 
 ## Main run =================================
 ########### =================================
-if __name__ == '__main__': 
+if __name__ == '__main__':
     main()
