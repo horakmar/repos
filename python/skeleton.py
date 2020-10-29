@@ -40,7 +40,7 @@ Parameters:
 Bugs:
 
 """
-    print usage.format(script_name = sys.argv[0])
+    print(usage.format(script_name = sys.argv[0]))
     return
 ## Usage end ## ----------------------------
 
@@ -90,17 +90,17 @@ def main():
         return
 ## Getparam end ## -------------------------
 
-    print "Test: {}".format(test)
-    print "Verbose: %d" % verbose
-    print "Log: %s" % log
-    print "More params:"
+    print("Test: {}".format(test))
+    print("Verbose: %d" % verbose)
+    print("Log: %s" % log)
+    print("More params:")
     for s in argn:
-        print s
+        print(s)
 
     return
 ## Main end =================================
 
 ## Main run =================================
 ########### =================================
-if __name__ == '__main__': 
+if __name__ == '__main__':
     main()
